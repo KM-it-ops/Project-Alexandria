@@ -3,126 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Alexandria | Autonomous AI Factory</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['Fira Code', 'monospace'],
-                    },
-                    colors: {
-                        gray: {
-                            900: '#0d1117',
-                            800: '#161b22',
-                            700: '#21262d',
-                        },
-                        red: {
-                            500: '#ff4444',
-                            600: '#cc0000',
-                        }
-                    }
-                }
-            }
+    <title>PROJECT ALEXANDRIA // Autonomous AI Software Factory</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Fira Code', monospace;
+            background-color: #030712;
         }
-    </script>
+        .header-font {
+            font-family: 'Share Tech Mono', sans-serif;
+        }
+        /* Terminal Scanline Overlay Effect */
+        .scanlines {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(
+                rgba(18, 16, 16, 0) 50%, 
+                rgba(0, 0, 0, 0.25) 50%
+            );
+            background-size: 100% 4px;
+            z-index: 50;
+            opacity: 0.4;
+        }
+        /* Subtle green glow */
+        .glow-green {
+            text-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
+        }
+        .border-glow {
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.15);
+        }
+        /* Terminal cursor blink */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .cursor-blink {
+            animation: blink 1s infinite;
+        }
+    </style>
 </head>
-<body class="bg-gray-900 text-gray-300 font-sans antialiased flex flex-col min-h-screen selection:bg-red-500 selection:text-white">
+<body class="text-gray-300 antialiased selection:bg-green-500 selection:text-black overflow-x-hidden">
 
-    <nav class="w-full border-b border-gray-700 bg-gray-900/80 backdrop-blur-md fixed top-0 z-50">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-white font-bold text-xl tracking-wide flex items-center gap-2">
-                <div class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-                PROJECT ALEXANDRIA
-            </div>
-            <div class="text-sm font-mono text-gray-400">
-                STATUS: <span class="text-green-400">TRACK C ACTIVE</span>
-            </div>
-        </div>
-    </nav>
+    <div class="scanlines"></div>
 
-    <main class="flex-grow flex flex-col justify-center items-center text-center px-6 pt-32 pb-20 max-w-4xl mx-auto mt-10">
-        <div class="inline-block px-3 py-1 mb-6 text-xs font-mono text-red-500 bg-red-500/10 border border-red-500/20 rounded-full">
-            CLEARANCE: RED // ORCHESTRATOR UPGRADED
-        </div>
-        <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight mb-6 leading-tight">
-            The Autonomous AI <br/>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Software Factory.</span>
-        </h1>
-        <p class="text-lg md:text-xl text-gray-400 mb-10 leading-relaxed font-light">
-            Project Alexandria leverages an Agentic Control Loop to process live threat intelligence. It bridges vector search and STIX 2.1 graph data to deliver scalable, self-healing cybersecurity infrastructure.
-        </p>
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events:none; z-index: 0;"></div>
+
+    <div class="relative z-10 border-b border-red-900/40 bg-red-950/20 px-4 py-2 text-center text-xs tracking-widest text-red-400 header-font uppercase">
+        <span class="inline-block animate-pulse mr-2">⚠️</span> LEVEL 5 CLEARANCE REQUIRED // CLASSIFICATION: <span class="font-bold underline">RED</span> // UNAUTHORIZED ACCESS DETECTED
+    </div>
+
+    <main class="relative z-10 max-w-5xl mx-auto px-4 pt-16 pb-24">
         
-        <div class="flex gap-4">
-            <a href="#architecture" class="px-8 py-3 bg-white text-gray-900 font-semibold rounded hover:bg-gray-200 transition-colors">
-                View Architecture
-            </a>
-            <a href="mailto:contact@example.com" class="px-8 py-3 bg-transparent border border-gray-600 text-white font-semibold rounded hover:border-gray-400 transition-colors">
-                Request Beta Access
-            </a>
-        </div>
+        <header class="flex flex-col items-center text-center mb-16">
+            <div class="border border-green-500/30 bg-green-950/10 px-3 py-1 rounded text-xs text-green-400 mb-6 header-font tracking-wider uppercase border-glow">
+                System Status: Phase 5 Complete // Phase 6 Initiating
+            </div>
+            <h1 class="header-font text-5xl md:text-7xl font-bold tracking-tight text-white uppercase glow-green">
+                Project <span class="text-green-400">Alexandria</span>
+            </h1>
+            <p class="mt-4 text-gray-400 max-w-xl text-sm md:text-base font-light tracking-wide">
+                The next evolutionary step in autonomous defensive infrastructure. Continuous live threat intelligence processing powered by an adaptive Agentic Control Loop.
+            </p>
+        </header>
+
+        <section class="mb-20">
+            <div class="border border-slate-800 bg-slate-950/80 rounded-lg overflow-hidden border-glow backdrop-blur-sm">
+                <div class="border-b border-slate-800 bg-slate-900 px-4 py-3 flex items-center justify-between">
+                    <div class="flex space-x-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500/70"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500/70"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500/70"></div>
+                    </div>
+                    <span class="text-xs text-slate-500 font-mono">master_orchestrator.py@alexandria-core</span>
+                    <span class="text-xs bg-slate-800 text-slate-400 px-2 py-0.5 rounded text-[10px]">FASTAPI: ONLINE</span>
+                </div>
+                <div class="p-6 text-xs md:text-sm font-mono space-y-3 leading-relaxed text-slate-400">
+                    <p><span class="text-slate-600">[2026-05-25 22:14:02]</span> <span class="text-blue-400">INFO:</span> Initializing AWS EC2 Linux target environment...</p>
+                    <p><span class="text-slate-600">[2026-05-25 22:14:05]</span> <span class="text-blue-400">INFO:</span> Spinning up active containers: <span class="text-purple-400">Milvus (Vector)</span>, <span class="text-purple-400">Neo4j (STIX 2.1 Graph)</span>.</p>
+                    <p><span class="text-slate-600">[2026-05-25 22:14:09]</span> <span class="text-yellow-500">WARN:</span> Missing python environment dependency: 'ctranslate2'. Triggering Watchdog Agent...</p>
+                    <p><span class="text-slate-600">[2026-05-25 22:14:10]</span> <span class="text-green-400">WATCHDOG:</span> Dispatching raw HTTP payload to AWS-hosted Ollama (Llama 3)...</p>
+                    <p><span class="text-slate-600">[2026-05-25 22:14:12]</span> <span class="text-green-400">WATCHDOG:</span> Auto-remediation script generated. Executing hot-fix on host OS...</p>
+                    <p><span class="text-slate-600">[2026-05-25 22:14:15]</span> <span class="text-cyan-400">TRACK C:</span> Streaming live CISA XML feeds. Embedding payloads via <span class="text-amber-400">all-MiniLM-L6-v2 Matrix</span>.</p>
+                    <p class="pt-2 text-white"><span class="text-green-400">alexandria-node:~#</span> <span class="text-gray-300">initiate --mode=omni-channel --divide=hybrid</span><span class="text-green-400 cursor-blink font-bold ml-1">_</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
+            
+            <div class="border border-slate-800/80 bg-slate-900/20 p-6 rounded-lg backdrop-blur-xs">
+                <div class="text-green-400 mb-4 text-xl">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path></svg>
+                </div>
+                <h3 class="header-font text-lg font-bold text-white mb-2 uppercase tracking-wide">The Compute Divide</h3>
+                <p class="text-slate-400 text-xs leading-relaxed">
+                    Zero server-side inference costs. Features a strict hybrid architecture keeping the dynamic data infrastructure on AWS EC2, while offloading LLM execution to local browser hardware using WebGPU and WebLLM.
+                </p>
+            </div>
+
+            <div class="border border-slate-800/80 bg-slate-900/20 p-6 rounded-lg backdrop-blur-xs">
+                <div class="text-green-400 mb-4 text-xl">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94-3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"></path></svg>
+                </div>
+                <h3 class="header-font text-lg font-bold text-white mb-2 uppercase tracking-wide">STIX 2.1 Graphing</h3>
+                <p class="text-slate-400 text-xs leading-relaxed">
+                    Bridges Neo4j structural cyber-threat relationship tracking with high-density Milvus vector streams to expose vulnerabilities and model Threat Actor signatures (APT29, SUNBURST) simultaneously.
+                </p>
+            </div>
+
+            <div class="border border-slate-800/80 bg-slate-900/20 p-6 rounded-lg backdrop-blur-xs">
+                <div class="text-green-400 mb-4 text-xl">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg>
+                </div>
+                <h3 class="header-font text-lg font-bold text-white mb-2 uppercase tracking-wide">Agentic Orchestration</h3>
+                <p class="text-slate-400 text-xs leading-relaxed">
+                    Powered by a backend-exclusive AI Watchdog tracking OS compilation bugs, raw error standard output, and misaligned packages to automatically debug environment dependencies before booting APIs.
+                </p>
+            </div>
+
+        </section>
+
+        <section class="max-w-xl mx-auto border border-green-500/20 bg-green-950/5 p-8 rounded-lg text-center border-glow relative">
+            <div class="absolute top-0 right-0 transform translate-x-2 -translate-y-2 text-[10px] text-green-500/40 font-mono header-font">
+                [SECURE_NODE_V1.06]
+            </div>
+            
+            <h2 class="header-font text-2xl font-bold text-white uppercase tracking-wider mb-2">Request Node Access</h2>
+            <p class="text-xs text-slate-400 mb-6">
+                Submit your encrypted routing pointer to receive alpha channel updates and early deployment access keys.
+            </p>
+
+            <form class="space-y-4 font-mono text-sm" onsubmit="event.preventDefault(); alert('Handshake complete. Node registration logged.');">
+                <div class="flex flex-col md:flex-row items-stretch gap-2">
+                    <div class="relative flex-grow">
+                        <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-green-500 text-xs font-bold font-mono">></span>
+                        <input type="email" required placeholder="operator@domain.com" 
+                            class="w-full bg-slate-950 border border-slate-800 text-green-400 placeholder-slate-600 pl-8 pr-4 py-3 rounded focus:outline-none focus:border-green-500 text-xs transition duration-200">
+                    </div>
+                    <button type="submit" 
+                        class="bg-green-500 hover:bg-green-400 text-black font-bold px-6 py-3 rounded text-xs tracking-wider uppercase transition duration-150 cursor-pointer header-font active:bg-green-600">
+                        Initialize Handshake
+                    </button>
+                </div>
+                <div class="text-[10px] text-slate-500 flex justify-center space-x-4 pt-2">
+                    <span>MILVUS IVF_FLAT: ON</span>
+                    <span>•</span>
+                    <span>WEBLM INDEXEDDB: READY</span>
+                    <span>•</span>
+                    <span>TAURI DEV: COMPILING</span>
+                </div>
+            </form>
+        </section>
+
     </main>
 
-    <section id="architecture" class="bg-gray-800 py-20 border-y border-gray-700">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-white mb-12 text-center">Live Intelligence Blueprint</h2>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gray-900 border border-gray-700 p-8 rounded-lg hover:border-gray-500 transition-colors">
-                    <div class="text-red-500 font-mono text-sm mb-4">TRACK A</div>
-                    <h3 class="text-xl font-bold text-white mb-3">Agentic Librarian</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        An intelligent routing matrix. The LLM interceptor embeds user queries and performs nearest-neighbor vector matching to dynamically fetch the exact context required.
-                    </p>
-                </div>
-
-                <div class="bg-gray-900 border border-gray-700 p-8 rounded-lg hover:border-gray-500 transition-colors">
-                    <div class="text-red-500 font-mono text-sm mb-4">TRACK B</div>
-                    <h3 class="text-xl font-bold text-white mb-3">STIX 2.1 Knowledge Graph</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Powered by Neo4j. Maps formal Threat Actor profiles, charting deep relational intelligence between APTs, Malware families, and target Vulnerabilities.
-                    </p>
-                </div>
-
-                <div class="bg-gray-900 border border-gray-700 p-8 rounded-lg hover:border-gray-500 transition-colors">
-                    <div class="text-red-500 font-mono text-sm mb-4">TRACK C</div>
-                    <h3 class="text-xl font-bold text-white mb-3">Semantic Vector Stream</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        A Milvus-driven ingestion pipeline running live CISA XML feeds through an all-MiniLM-L6-v2 embedding model with SemDeDup optimization.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 max-w-4xl mx-auto px-6 w-full">
-        <h2 class="text-2xl font-bold text-white mb-6">System Diagnostic Log</h2>
-        <div class="bg-[#0a0a0a] rounded-lg p-6 font-mono text-sm text-green-500 border border-gray-800 shadow-2xl overflow-x-auto">
-            <div class="mb-2 text-gray-500">user@alexandria:~$ tail -f /var/log/orchestrator.log</div>
-            <div class="mb-1">[INFO] Initiating Dynamic Environment Scan...</div>
-            <div class="mb-1">[INFO] Verified: neo4j driver loaded.</div>
-            <div class="mb-1 text-red-400">[WARN] Missing dependency: pymilvus. Attempting self-healing install...</div>
-            <div class="mb-1">[INFO] Successfully installed pymilvus.</div>
-            <div class="mb-1">[INFO] Connected to Neo4j container. Ingesting STIX 2.1 APT29 profile.</div>
-            <div class="mb-1">[INFO] Booting WebLLM client-side inference engine...</div>
-            <div class="mb-1 text-white">[OK] System is hot. Awaiting queries.</div>
-            <div class="mt-2 text-gray-500 animate-pulse">_</div>
-        </div>
-    </section>
-
-    <footer class="bg-gray-900 border-t border-gray-800 py-10 mt-auto">
-        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-            <div class="mb-4 md:mb-0">
-                &copy; 2026 Project Alexandria. All rights reserved.
-            </div>
-            <div class="text-right">
-                Engineered by <strong>Michael Kurdi</strong><br/>
-                <span class="text-xs">B.S. Information Technology & Cybersecurity</span>
-            </div>
-        </div>
+    <footer class="border-t border-slate-900 bg-slate-950/40 py-6 text-center text-[10px] text-slate-600 font-mono relative z-10">
+        &copy; 2026 Project Alexandria. Built under AWS Activate Founders Credentials. All rights reserved. 
     </footer>
 
 </body>
